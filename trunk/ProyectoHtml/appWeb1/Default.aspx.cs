@@ -16,12 +16,12 @@ public partial class _Default : System.Web.UI.Page
     public static string GetAudio()
     {
         //write logic to return random audio file
-        return "Medios/03. Armonia de Amor.mp3";
+        return "Medios/12 La luz y la ilusion.mp3";
     }
     [WebMethod]
     public static string GetVideo()
     {
         //write logic to return random video file
-        return "Medios/flor2.mp4";
+        return "Medios/pepe.mp4";
     }
 }

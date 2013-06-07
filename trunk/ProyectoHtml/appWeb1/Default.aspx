@@ -22,8 +22,8 @@
                               contentType: "application/json; charset=utf-8",
                               dataType: "json",
                               success: function (results) {
-                                  $("#audios").src = results.d;
-                                  $("#audios").trigger("play");
+                                  $("#audios")[0].src = results.d;
+                                  $("#audios")[0].play();
                             
                               },
                               error: function (err) {
@@ -38,7 +38,7 @@
                               contentType: "application/json; charset=utf-8",
                               dataType: "json",
                               success: function (results) {
-                                  $("#videos").src = results.d;
+                                  $("#videos")[0].src = results.d;
                                   $("#videos").trigger("play");
                               },
                               error: function (err) {
@@ -55,12 +55,12 @@
         <input type="button" id="playmusic" value="Play Random Audio File" />
         <br />
         <br />
-        <audio id="audios" src="Medios/10. Dulce Amor (Solo Un Latido).mp3" controls=""></audio>
+        <audio id="audios" src="Medios/10. Dulce Amor (Solo Un Latido).mp3" controls="controls" ></audio>
         <br />
         <input type="button" id="playvideo" value="Play Random Video File" />
         <br />
         <br />
-        <video id="videos" src="Medios/flor2.mp4" controls=""></video>
+        <video id="videos" src="Medios/dibujo.mp4" controls=""></video>
     </div>
     
 </asp:Content>
