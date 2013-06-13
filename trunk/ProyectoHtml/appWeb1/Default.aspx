@@ -60,7 +60,10 @@
         <input type="button" id="playvideo" value="Play Random Video File" />
         <br />
         <br />
-        <video id="videos" src="Medios/dibujo.mp4" controls=""></video>
+        <video id="videos" src="Medios/dibujo.mp4" controls="controls" poster="Imagenes/01.jpg"  >
+
+
+        </video>
     </div>
-    
+   
 </asp:Content>
