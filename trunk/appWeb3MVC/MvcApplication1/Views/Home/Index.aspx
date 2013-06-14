@@ -27,68 +27,71 @@
         function OnError(err) {
             alert(err.status + " - " + err.statusText);
         }
-        videoPlayer = $("#videoPlayer").get(0);
-      
-        $("#ddlPlayList").change(function () {
-            var extension = $(this).val();
-            
-            extension = extension.substr(extension.lastIndexOf('.') + 1)
-            var mime = "";
-            switch (extension) {
-                case 'mp4':
-                    mime = "video/mp4";
-                    break;
-                case 'ogv':
-                    mime = "video/ogg";
-                    break;
-                case 'webm':
-                    mime = "video/webm";
-                    break;
-            }
-            if (videoPlayer.canPlayType(mime)) {
-                $("#btnPlayPause").val("Play");
-                videoPlayer.src = $(this).val();
-              
-                $("#btnPlayPause").click();
-            }
-            else {
-                alert("Cannot play this video format!");
-            }
-        });
-        $("#btnPlayPause").click(function () {
-            if ($(this).val() == "Play") {
-                videoPlayer.playbackRate = $("#rngPlaybackRate").val();
-                videoPlayer.play();
-              
-            }
-            else {
+        $(document).ready(function () {
+            videoPlayer = $("#videoPlayer").get(0);
+
+            $("#ddlPlayList").change(function () {
+                var extension = $(this).val();
+
+                extension = extension.substr(extension.lastIndexOf('.') + 1)
+                var mime = "";
+                switch (extension) {
+                    case 'mp4':
+                        mime = "video/mp4";
+                        break;
+                    case 'ogv':
+                        mime = "video/ogg";
+                        break;
+                    case 'webm':
+                        mime = "video/webm";
+                        break;
+                }
+
+                if (videoPlayer.canPlayType(mime)) {
+                    $("#btnPlayPause").val("Play");
+                    videoPlayer.src = $(this).val();
+                    $("#btnPlayPause").click();
+                }
+                else {
+                    alert("Cannot play this video format!");
+                }
+            });
+            $("#btnPlayPause").click(function () {
+                if ($(this).val() == "Play") {
+                    videoPlayer.playbackRate = $("#rngPlaybackRate").val();
+                    videoPlayer.play();
+
+                }
+                else {
+                    videoPlayer.pause();
+                }
+            });
+            $("#btnStop").click(function () {
                 videoPlayer.pause();
+                videoPlayer.currentTime = 0;
+
+            });
+            $("#rngVolume").change(function () {
+                videoPlayer.volume = $(this).val();
+            });
+            $(videoPlayer).bind("loadedmetadata", OnLoadedMetadata);
+            $(videoPlayer).bind("timeupdate", OnTimeUpdate);
+            $(videoPlayer).bind("play", OnPlay);
+            $(videoPlayer).bind("pause", OnPause);
+            function OnLoadedMetadata() {
+                $("#spanDuration").html("Duration : " + videoPlayer.duration.toFixed(1) + " seconds.");
+            }
+            function OnTimeUpdate() {
+                var percentage = Math.floor((videoPlayer.currentTime / videoPlayer.duration * 100));
+                $("#spanProgress").html(percentage + " % ");
+            }
+            function OnPlay() {
+                $("#btnPlayPause").val("Pause");
+            }
+            function OnPause() {
+                $("#btnPlayPause").val("Play");
             }
         });
-        $("#btnStop").click(function () {
-            videoPlayer.pause();
-            videoPlayer.currentTime = 0;
-        });
-        $("#rngVolume").change(function () {
-            videoPlayer.volume = $(this).val();
-        });
-        $(videoPlayer).bind("loadedmetadata", OnLoadedMetadata);
-        $(videoPlayer).bind("timeupdate", OnTimeUpdate);
-        $(videoPlayer).bind("play", OnPlay);
-        $(videoPlayer).bind("pause", OnPause);
-        function OnLoadedMetadata() {
-            $("#spanDuration").html("Duration : " + videoPlayer.duration.toFixed(1) + " seconds.");
-        }
-        function OnTimeUpdate() {
-            var percentage = Math.floor((videoPlayer.currentTime / videoPlayer.duration * 100));
-            $("#spanProgress").html(percentage + " % ");
-        }
-        function OnPlay() {
-            $("#btnPlayPause").val("Pause");
-        }
-        function OnPause() {
-            $("#btnPlayPause").val("Play");
-        }
     </script>
 </head>
 <body>
