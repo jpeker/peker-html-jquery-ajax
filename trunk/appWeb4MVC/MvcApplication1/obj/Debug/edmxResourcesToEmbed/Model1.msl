@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Html5PruebaModelStoreContainer" CdmEntityContainer="Html5PruebaEntities">
+    <EntitySetMapping Name="ChartDetail">
+      <EntityTypeMapping TypeName="Html5PruebaModel.ChartDetail">
+        <MappingFragment StoreEntitySet="ChartDetail">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="SectorValue" ColumnName="SectorValue" />
+          <ScalarProperty Name="SectorColor" ColumnName="SectorColor" />
+          <ScalarProperty Name="ChartId" ColumnName="ChartId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChartMaster">
+      <EntityTypeMapping TypeName="Html5PruebaModel.ChartMaster">
+        <MappingFragment StoreEntitySet="ChartMaster">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

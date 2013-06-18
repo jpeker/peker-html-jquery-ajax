@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Html5PruebaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="Html5PruebaModelStoreContainer">
+    <EntitySet Name="ChartDetail" EntityType="Html5PruebaModel.Store.ChartDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ChartMaster" EntityType="Html5PruebaModel.Store.ChartMaster" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ChartDetail_ChartMaster1" Association="Html5PruebaModel.Store.FK_ChartDetail_ChartMaster1">
+      <End Role="ChartMaster" EntitySet="ChartMaster" />
+      <End Role="ChartDetail" EntitySet="ChartDetail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ChartDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SectorName" Type="varchar" MaxLength="50" />
+    <Property Name="SectorValue" Type="varchar" MaxLength="50" />
+    <Property Name="SectorColor" Type="varchar" MaxLength="50" />
+    <Property Name="ChartId" Type="int" />
+  </EntityType>
+  <EntityType Name="ChartMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImageUrl" Type="nvarchar" MaxLength="50" />
+    <Property Name="DateCreated" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_ChartDetail_ChartMaster1">
+    <End Role="ChartMaster" Type="Html5PruebaModel.Store.ChartMaster" Multiplicity="0..1" />
+    <End Role="ChartDetail" Type="Html5PruebaModel.Store.ChartDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChartMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChartDetail">
+        <PropertyRef Name="ChartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
