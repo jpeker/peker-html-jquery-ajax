@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Html5PruebaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Html5PruebaEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="ChartDetail" EntityType="Html5PruebaModel.ChartDetail" />
+    <EntitySet Name="ChartMaster" EntityType="Html5PruebaModel.ChartMaster" />
+    <AssociationSet Name="FK_ChartDetail_ChartMaster1" Association="Html5PruebaModel.FK_ChartDetail_ChartMaster1">
+      <End Role="ChartMaster" EntitySet="ChartMaster" />
+      <End Role="ChartDetail" EntitySet="ChartDetail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ChartDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="SectorName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SectorValue" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="SectorColor" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="ChartId" Type="Int32" />
+    <NavigationProperty Name="ChartMaster" Relationship="Html5PruebaModel.FK_ChartDetail_ChartMaster1" FromRole="ChartDetail" ToRole="ChartMaster" />
+  </EntityType>
+  <EntityType Name="ChartMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ImageUrl" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DateCreated" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ChartDetail" Relationship="Html5PruebaModel.FK_ChartDetail_ChartMaster1" FromRole="ChartMaster" ToRole="ChartDetail" />
+  </EntityType>
+  <Association Name="FK_ChartDetail_ChartMaster1">
+    <End Role="ChartMaster" Type="Html5PruebaModel.ChartMaster" Multiplicity="0..1" />
+    <End Role="ChartDetail" Type="Html5PruebaModel.ChartDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChartMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ChartDetail">
+        <PropertyRef Name="ChartId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

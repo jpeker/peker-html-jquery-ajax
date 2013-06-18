@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Html5PruebaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Html5PruebaModelStoreContainer">
+          <EntitySet Name="ChartDetail" EntityType="Html5PruebaModel.Store.ChartDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="ChartMaster" EntityType="Html5PruebaModel.Store.ChartMaster" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_ChartDetail_ChartMaster1" Association="Html5PruebaModel.Store.FK_ChartDetail_ChartMaster1">
+            <End Role="ChartMaster" EntitySet="ChartMaster" />
+            <End Role="ChartDetail" EntitySet="ChartDetail" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChartDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SectorName" Type="varchar" MaxLength="50" />
+          <Property Name="SectorValue" Type="varchar" MaxLength="50" />
+          <Property Name="SectorColor" Type="varchar" MaxLength="50" />
+          <Property Name="ChartId" Type="int" />
+        </EntityType>
+        <EntityType Name="ChartMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" />
+          <Property Name="ImageUrl" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateCreated" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_ChartDetail_ChartMaster1">
+          <End Role="ChartMaster" Type="Html5PruebaModel.Store.ChartMaster" Multiplicity="0..1" />
+          <End Role="ChartDetail" Type="Html5PruebaModel.Store.ChartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChartMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChartDetail">
+              <PropertyRef Name="ChartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Html5PruebaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Html5PruebaEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="ChartDetail" EntityType="Html5PruebaModel.ChartDetail" />
+          <EntitySet Name="ChartMaster" EntityType="Html5PruebaModel.ChartMaster" />
+          <AssociationSet Name="FK_ChartDetail_ChartMaster1" Association="Html5PruebaModel.FK_ChartDetail_ChartMaster1">
+            <End Role="ChartMaster" EntitySet="ChartMaster" />
+            <End Role="ChartDetail" EntitySet="ChartDetail" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ChartDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SectorName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SectorValue" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SectorColor" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="ChartId" Type="Int32" />
+          <NavigationProperty Name="ChartMaster" Relationship="Html5PruebaModel.FK_ChartDetail_ChartMaster1" FromRole="ChartDetail" ToRole="ChartMaster" />
+        </EntityType>
+        <EntityType Name="ChartMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ImageUrl" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="DateCreated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ChartDetail" Relationship="Html5PruebaModel.FK_ChartDetail_ChartMaster1" FromRole="ChartMaster" ToRole="ChartDetail" />
+        </EntityType>
+        <Association Name="FK_ChartDetail_ChartMaster1">
+          <End Role="ChartMaster" Type="Html5PruebaModel.ChartMaster" Multiplicity="0..1" />
+          <End Role="ChartDetail" Type="Html5PruebaModel.ChartDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChartMaster">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="ChartDetail">
+              <PropertyRef Name="ChartId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Html5PruebaModelStoreContainer" CdmEntityContainer="Html5PruebaEntities">
+          <EntitySetMapping Name="ChartDetail">
+            <EntityTypeMapping TypeName="Html5PruebaModel.ChartDetail">
+              <MappingFragment StoreEntitySet="ChartDetail">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+                <ScalarProperty Name="SectorValue" ColumnName="SectorValue" />
+                <ScalarProperty Name="SectorColor" ColumnName="SectorColor" />
+                <ScalarProperty Name="ChartId" ColumnName="ChartId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChartMaster">
+            <EntityTypeMapping TypeName="Html5PruebaModel.ChartMaster">
+              <MappingFragment StoreEntitySet="ChartMaster">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="ImageUrl" ColumnName="ImageUrl" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
