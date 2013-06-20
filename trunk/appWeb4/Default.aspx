@@ -9,6 +9,11 @@
       <script type="text/javascript"
         src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js">
     </script>
+    <script type="text/javascript">
+
+       
+
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -28,7 +33,16 @@
          <!--input id="firstName" type="text" name="firstName" pattern="^\s*([a-zA-Z]+)\s*$"
 required="required" />
 <input type="submit" value="Submit"/-->
-        <input id="color1" type="color" />
+        <!--input id="color1" type="color" /-->
+      
+<!--input id="telephone" type="tel" placeholder="(123) 123-1234"/>
+        <textarea id="textarea1" rows="5" cols="50" spellcheck="true"/-->
+        <input id="country" type="text" list="pickuplist1" />
+<datalist id="pickuplist1">
+<option label="India" value="India"></option>
+<option label="USA" value="USA"></option>
+<option label="UK" value="UK"></option>
+</datalist> 
     </form>
 </body>
 </html>
