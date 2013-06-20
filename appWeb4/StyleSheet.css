@@ -1,0 +1,8 @@
+﻿input:invalid {
+background-color: #ffd800;
+border: 2px solid #f00;
+}
+input:required {
+background-color: #fff;
+border: 1px solid #ff6a00;
+}
