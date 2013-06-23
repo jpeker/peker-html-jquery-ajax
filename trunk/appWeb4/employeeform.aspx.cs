@@ -11,6 +11,7 @@ public partial class employeeform : System.Web.UI.Page
     {
        
     }
+    /*
     protected void FormView1_DataBound(object sender, EventArgs e)
     {
         if (FormView1.CurrentMode == FormViewMode.Edit)
@@ -77,5 +78,5 @@ public partial class employeeform : System.Web.UI.Page
         var data = (from item in db.Employees
                     select item.Title).Distinct();
         return data.ToArray();
-    }
+    }*/
 }
