@@ -4,9 +4,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
-        <script type="text/javascript"
+    <script type="text/javascript"
         src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.js">
     </script>
     <script type="text/javascript">
@@ -53,65 +53,6 @@
     </script>
 </head>
 <body>
-    <asp:FormView ID="FormView1" runat="server"
-AllowPaging="True"
-DefaultMode="Edit"
-DataKeyNames="EmployeeID"
-SelectMethod="GetEmployees"
-InsertMethod="InsertEmployee"
-UpdateMethod="UpdateEmployee"
-DeleteMethod="DeleteEmployee"
-ItemType="SampleAppWebForms.Model.Employee"
->
-<EditItemTemplate>
-<fieldset>
-<legend>Basic Details</legend>
-<label for="FullName">Full Name :</label>
-<!--asp:DropDownList ... SelectedValue='<--%# BindItem.TitleOfCourtesy %>'>
-...
-</!--asp:DropDownList-->
-<asp:TextBox ... required="required" Text="<%# BindItem.FirstName %>"
-PlaceHolder="First Name" autofocus="autofocus">...
-<asp:TextBox ... required="required" Text="<%# BindItem.LastName %>"
-PlaceHolder="Last Name">...
-<label for="txtBirthDate">Birth Date :</label>
-<asp:TextBox ... TextMode="Date" Text="<%# BindItem.BirthDate %>"
-required="required" PlaceHolder="Birth Date" >...
-</fieldset>
-<fieldset>
-<legend>Employment Details</legend>
-<label for="lblEmployeeID">Employee ID :</label>
-<asp:Label ... Text="<%# BindItem.EmployeeID %>">...
-<label for="txtDesig">Current Designation :</label>
-<asp:TextBox ... required="required" Text="<%# BindItem.Title %>"
-PlaceHolder="Designation" list="lstTitles">...
-<datalist id="lstTitles"></datalist>
-<label for="txtHireDate">Hire Date :</label>
-<asp:TextBox ... TextMode="Date" Text='<%# BindItem.HireDate %>'
-required="required" PlaceHolder="Hire Date">...
-</fieldset>
-<fieldset>
-<legend>Contact Details</legend>
-<label for="address">Address :</label>
-<asp:TextBox ... required="required" Text="<%# BindItem.Address %>"
-PlaceHolder="Street Address">...
-<asp:TextBox ... required="required" Text='<%# BindItem.City %>'
-PlaceHolder="City" >...
-<asp:TextBox ... required="required" Text='<%# BindItem.Country %>'
-PlaceHolder="Country" >...
-<asp:TextBox ... pattern="\d{5}(-\d{4})?" Text='<%# BindItem.PostalCode %>'
-required="required" PlaceHolder="Postal Code" >...
-<label for="txtPhone">Home Phone :</label><br />
-<asp:TextBox ... TextMode="Phone" Text='<%# BindItem.HomePhone %>'
-PlaceHolder="(123) 123-1234" >...
-</fieldset>
-<asp:Button ... Text="Save" CommandName="Update" />
-<asp:Button ... ID="btnNew" Text="Add New"
-CommandName="New" formnovalidate="formnovalidate" />
-<asp:Button ... ID="btnDelete" Text="Delete"
-CommandName="Delete" formnovalidate="formnovalidate" />
-</EditItemTemplate>
-</asp:FormView>
- 
+   
 </body>
 </html>
