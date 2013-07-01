@@ -1,0 +1,75 @@
+﻿   a[href^="http://"] {
+            color:red;
+            font-size:30px;
+        }
+        a[href^="mailto:"] {
+            color:blue;
+            font-size:30px;
+        }
+        a[href$=".pdf"] {
+color:green;
+font-size:30px;
+}
+        a[href*="google"] {
+color:orange;
+font-size:30px;
+}
+ /*     tr:last-child {
+background-color:#808080;
+font-size:20px;
+}*/  
+        tr:nth-child(odd) {
+background-color:#fff;
+}
+tr:nth-child(even) {
+background-color:#808080;
+}
+input[type="text"]:enabled { background:#fff; }
+input[type="text"]:disabled { background:#808080; }
+input:checked { border:2px #f00 solid; }
+input:not([type="submit"]) {
+background-color:#808080;
+}
+div ~ ul {
+background-color:#ff6a00;
+}
+@font-face
+{
+font-family: MyWebFont;
+src: url('Fonts/Magenta_BBT.ttf');
+}
+h1 {
+font-family: 'MyWebFont';
+font-size:40px;
+text-align:center;
+}
+h2 {
+font-family:'Peralta';
+font-size:20px;
+text-align:center;
+}
+/*
+@media (min-device-width: 800px) {
+body {
+background-color:blue;
+color:white;
+}
+}
+@media (max-width: 480px) and (orientation:portrait) {
+body {
+background-color:red;
+color:white;
+}
+}*/
+.div {
+background-color: #d3a584;
+padding: 10px;
+text-align: center;
+}
+.borderradius .div {
+border: 2px #f00 solid;
+border-radius: 25px;
+}
+.no-borderradius .div {
+border: 2px #f00 solid;
+}

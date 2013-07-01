@@ -8,7 +8,7 @@
     <title></title>
     <script type="text/javascript" src="/Scripts/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="/Scripts/modernizr-2.6.2.js"></script>
-   
+    <link href="StyleSheet.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript">
         $(document).ready(function () {
             if (!Modernizr.geolocation) {
