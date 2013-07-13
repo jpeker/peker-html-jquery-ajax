@@ -13,7 +13,7 @@
     <script>
 
 
-        var targetOrigin = "http://localhost:50100";
+        var targetOrigin = "http://localhost:50977";
         $(document).ready(function () {
             if (!Modernizr.postmessage) {
                 alert("This browser doesn’t support the HTML5 postMessage API!");

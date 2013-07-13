@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "appWeb9", "http://localhost:51508", "{ED6E0F1E-3036-4BB7-B3A5-058DFB0A575F}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_51508"
+		Debug.AspNetCompiler.PhysicalPath = "D:\Julian Peker\Html5\peker-html-jquery-ajax\appWeb9\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51508\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_51508"
+		Release.AspNetCompiler.PhysicalPath = "D:\Julian Peker\Html5\peker-html-jquery-ajax\appWeb9\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_51508\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "D:\Julian Peker\Html5\peker-html-jquery-ajax\appWeb9\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED6E0F1E-3036-4BB7-B3A5-058DFB0A575F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED6E0F1E-3036-4BB7-B3A5-058DFB0A575F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
